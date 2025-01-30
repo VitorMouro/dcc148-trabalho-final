@@ -251,7 +251,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -269,6 +269,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c51010837eed067f932b8c599730684, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetX: {fileID: 631165600}
+  targetY: 4
+  t: 0.01
+  limitX: {x: -5, y: 5}
 --- !u!1 &631165596
 GameObject:
   m_ObjectHideFlags: 0
@@ -426,7 +430,7 @@ Transform:
   m_GameObject: {fileID: 631165596}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 3.35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -444,6 +448,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bd33228d3f3ed510b8ba9cb1247dc43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 10
+  jumpForce: 12
+  gravity: -20
 --- !u!1 &721570825
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,6 +480,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e8d53c1adfce67cb0dde1461c3b036, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  platformPrefab: {fileID: 3203528242176775444, guid: 43f71f5cd468ac7f3a7e0875435661b6, type: 3}
+  numPlatforms: 20
+  verticalDistance: 2.5
+  maxHorizontalDistance: 5
 --- !u!4 &721570827
 Transform:
   m_ObjectHideFlags: 0
