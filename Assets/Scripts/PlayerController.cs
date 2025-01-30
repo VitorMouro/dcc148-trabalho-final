@@ -11,17 +11,26 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     private PlatformController _platformController;
     private Camera _camera;
+    private Material _background;
+    private Animator _animator;
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _platformController = FindFirstObjectByType<PlatformController>();
         _camera = Camera.main;
+        GameObject background = GameObject.Find("Background");
+        _background = background.GetComponent<MeshRenderer>().material;
+        _animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
         float horizontal = Input.GetAxis("Horizontal");
+        if (horizontal > 0)
+            _spriteRenderer.flipX = true;
+        else if (horizontal < 0)
+            _spriteRenderer.flipX = false;
         
         _rigidbody.linearVelocityX = horizontal * speed;
         _rigidbody.linearVelocityY += gravity * Time.deltaTime;
@@ -34,6 +43,8 @@ public class PlayerController : MonoBehaviour
             if (_rigidbody.linearVelocityY > 0)
                 return;
             
+            _animator.SetTrigger("Crouch");
+            
             SpriteRenderer platformSr = other.GetComponent<SpriteRenderer>();
             float platformY = platformSr.bounds.max.y;
             // float playerY = _spriteRenderer.bounds.min.y;
@@ -45,6 +56,8 @@ public class PlayerController : MonoBehaviour
             Vector3 offset = Vector3.up * (-platformY);
             _platformController.Offset(offset); 
             transform.Translate(offset);
+            Vector2 textureOffset = offset / 0.675f;
+            _background.mainTextureOffset += textureOffset;
             _camera.transform.Translate(offset);
         }
     }
