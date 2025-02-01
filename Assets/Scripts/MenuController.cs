@@ -7,4 +7,9 @@ public class MenuController : MonoBehaviour
     {
         SceneManager.LoadScene("Fase 1");
     }
+
+    public void Creditos()
+    {
+        SceneManager.LoadScene("Creditos");
+    }
 }
