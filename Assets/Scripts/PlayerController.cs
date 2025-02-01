@@ -1,17 +1,17 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
     public float speed;
     public float jumpForce;
     public float gravity;
-    
+
     private Rigidbody2D _rigidbody;
     private SpriteRenderer _spriteRenderer;
     private PlatformController _platformController;
     private Camera _camera;
     private Material _background;
+    private GameObject _coin;
     private Animator _animator;
     private void Start()
     {
@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
         GameObject background = GameObject.Find("Background");
         _background = background.GetComponent<MeshRenderer>().material;
         _animator = GetComponent<Animator>();
+        // _coin = GameObject.FindWithTag("Coin"); 
     }
 
     private void Update()
@@ -31,7 +32,7 @@ public class PlayerController : MonoBehaviour
             _spriteRenderer.flipX = true;
         else if (horizontal < 0)
             _spriteRenderer.flipX = false;
-        
+
         _rigidbody.linearVelocityX = horizontal * speed;
         _rigidbody.linearVelocityY += gravity * Time.deltaTime;
     }
@@ -42,14 +43,14 @@ public class PlayerController : MonoBehaviour
         {
             if (_rigidbody.linearVelocityY > 0)
                 return;
-            
+
             _animator.SetTrigger("Crouch");
-            
+
             SpriteRenderer platformSr = other.GetComponent<SpriteRenderer>();
             float platformY = platformSr.bounds.max.y;
             // float playerY = _spriteRenderer.bounds.min.y;
             float playerHalfHeight = _spriteRenderer.bounds.size.y / 2;
-            
+
             transform.position = new Vector3(transform.position.x, platformY + playerHalfHeight, transform.position.z);
             _rigidbody.linearVelocityY = jumpForce;
 
@@ -59,6 +60,11 @@ public class PlayerController : MonoBehaviour
             Vector2 textureOffset = offset / 0.675f;
             _background.mainTextureOffset += textureOffset;
             _camera.transform.Translate(offset);
+            // _coin.transform.Translate(offset);
+        }
+        else if (other.gameObject.name.Contains("Coin"))
+        {
+            Debug.Log("Coin");
         }
     }
 }
