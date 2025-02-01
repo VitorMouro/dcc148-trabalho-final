@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5877042825627100402}
   - component: {fileID: 6525067609008084059}
   - component: {fileID: 5671456324597954705}
+  - component: {fileID: 8187396857103084407}
   m_Layer: 0
   m_Name: PlatformMove
   m_TagString: Untagged
@@ -131,3 +132,19 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &8187396857103084407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3203528242176775444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abb7f0cd75d25cbdd931e7bf3a3f1e3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minX: -5
+  maxX: 5
+  minSpeed: 1
+  maxSpeed: 4

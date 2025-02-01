@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -22,7 +23,6 @@ public class PlayerController : MonoBehaviour
         GameObject background = GameObject.Find("Background");
         _background = background.GetComponent<MeshRenderer>().material;
         _animator = GetComponent<Animator>();
-        // _coin = GameObject.FindWithTag("Coin"); 
     }
 
     private void Update()
@@ -35,6 +35,9 @@ public class PlayerController : MonoBehaviour
 
         _rigidbody.linearVelocityX = horizontal * speed;
         _rigidbody.linearVelocityY += gravity * Time.deltaTime;
+
+        if (transform.position.y < -1.5) 
+            SceneManager.LoadScene("GameOver");
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -48,7 +51,6 @@ public class PlayerController : MonoBehaviour
 
             SpriteRenderer platformSr = other.GetComponent<SpriteRenderer>();
             float platformY = platformSr.bounds.max.y;
-            // float playerY = _spriteRenderer.bounds.min.y;
             float playerHalfHeight = _spriteRenderer.bounds.size.y / 2;
 
             transform.position = new Vector3(transform.position.x, platformY + playerHalfHeight, transform.position.z);
@@ -57,14 +59,22 @@ public class PlayerController : MonoBehaviour
             Vector3 offset = Vector3.up * (-platformY);
             _platformController.Offset(offset); 
             transform.Translate(offset);
-            Vector2 textureOffset = offset / 0.675f;
+            // Vector2 textureOffset = offset / 0.675f;
+            Vector2 textureOffset = offset / (0.27f * _platformController.verticalDistance);
             _background.mainTextureOffset += textureOffset;
             _camera.transform.Translate(offset);
-            // _coin.transform.Translate(offset);
+
+            if(other.gameObject.name.Contains("Break")){
+                _platformController.DestroyPlatform(other.gameObject);
+            } else if (other.gameObject.name.Contains("Jump")){
+                _rigidbody.linearVelocityY = jumpForce * 1.5f;
+            } else if (other.gameObject.name.Contains("Death")){
+                SceneManager.LoadScene("GameOver");
+            }
         }
         else if (other.gameObject.name.Contains("Coin"))
         {
-            Debug.Log("Coin");
+            SceneManager.LoadScene("GameOver");
         }
     }
 }

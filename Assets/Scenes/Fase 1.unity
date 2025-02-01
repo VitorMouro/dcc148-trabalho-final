@@ -503,13 +503,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e8d53c1adfce67cb0dde1461c3b036, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platformPrefab: {fileID: 3203528242176775444, guid: 046e79086b21607f492689b978d8aa54, type: 3}
+  platformsPrefab:
+  - {fileID: 3203528242176775444, guid: 046e79086b21607f492689b978d8aa54, type: 3}
+  - {fileID: 3203528242176775444, guid: 327011699394cc2cb9fc90ea85f8dfe6, type: 3}
+  - {fileID: 3203528242176775444, guid: 154e26d1812296a49bbd9c6f6eaf891f, type: 3}
+  - {fileID: 3203528242176775444, guid: 43f71f5cd468ac7f3a7e0875435661b6, type: 3}
+  - {fileID: 3203528242176775444, guid: 7dfafd6dec25b5014b15702153465793, type: 3}
   coinPrefab: {fileID: 3278140287274423765, guid: d8cf1d43a13ac95f79b672583ed543b3, type: 3}
-  numPlatforms: 20
-  verticalDistance: 2.5
-  maxHorizontalDistance: 5
-  maxX: 10
-  coinHeight: 4
+  numPlatforms: 40
+  verticalDistance: 1
+  maxHorizontalDistance: 6
+  maxX: 12
+  coinHeight: 2
 --- !u!4 &721570827
 Transform:
   m_ObjectHideFlags: 0
@@ -553,8 +558,8 @@ Transform:
   m_GameObject: {fileID: 1866847193}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0095, y: 4.975, z: 0.030625343}
-  m_LocalScale: {x: 28, y: 20, z: 1}
+  m_LocalPosition: {x: 0, y: 5, z: 5}
+  m_LocalScale: {x: 28, y: 28, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

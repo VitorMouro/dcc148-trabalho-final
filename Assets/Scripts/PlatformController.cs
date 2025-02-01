@@ -3,26 +3,27 @@ using UnityEngine;
 
 public class PlatformController : MonoBehaviour
 {
-    public GameObject platformPrefab;
+    public GameObject[] platformsPrefab;
     public GameObject coinPrefab;
     public int numPlatforms;
     public float verticalDistance;
     public float maxHorizontalDistance;
     public float maxX;
     public float coinHeight;
-    private Queue<GameObject> _platformQueue;
+    private List<GameObject> _platformQueue;
 
     private void Start()
     {
-        _platformQueue = new Queue<GameObject>();
+        _platformQueue = new List<GameObject>();
         float lastPositionX = 0;
         for (int i = 0; i < numPlatforms; i++)
         {
-            GameObject platform = Instantiate(platformPrefab);
+            int randIndex = i == 0 ? 0 : Random.Range(0, platformsPrefab.Length);
+            GameObject platform = Instantiate(platformsPrefab[randIndex]);
             float platformX = i == 0 ? 0 : Random.Range(lastPositionX-maxHorizontalDistance, lastPositionX+maxHorizontalDistance);
             platformX = Mathf.Clamp(platformX, -maxX, maxX);
             platform.transform.position = new Vector3(platformX, i * verticalDistance, transform.position.z);
-            _platformQueue.Enqueue(platform);
+            _platformQueue.Add(platform);
             lastPositionX = platform.transform.position.x;
 
             if(i == numPlatforms-1)
@@ -42,7 +43,24 @@ public class PlatformController : MonoBehaviour
         }
     }
 
+    public void DestroyPlatform(GameObject platform) {
+        Destroy(platform);
+        _platformQueue.Remove(platform);
+    }
+
     private void Update()
     {
+        List<GameObject> shouldDestroy = new List<GameObject>();
+        foreach (GameObject platform in _platformQueue)
+        {
+            bool isOutOfScreen = platform.transform.position.y < Camera.main.transform.position.y - Camera.main.orthographicSize;
+            if(platform.transform.position.y < -1 && isOutOfScreen)
+                shouldDestroy.Add(platform);
+        }
+
+        foreach (GameObject platform in shouldDestroy)
+        {
+            DestroyPlatform(platform);
+        }
     }
 }
