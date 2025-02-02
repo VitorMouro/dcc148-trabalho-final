@@ -5,7 +5,7 @@ public class MenuController : MonoBehaviour
 {
     public void StartGame()
     {
-        SceneManager.LoadScene("Fase 1");
+        SceneManager.LoadScene("Instrucoes");
     }
 
     public void Creditos()
