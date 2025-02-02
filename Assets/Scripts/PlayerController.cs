@@ -69,10 +69,10 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.name.Contains("Platform"))
         {
-            JumpSound.instance.GetComponent<AudioSource>().Play();
             if (_rigidbody.linearVelocityY > 0) {
                 return;
             }
+            JumpSound.instance.GetComponent<AudioSource>().Play();
 
             _animator.SetTrigger("Crouch");
 
@@ -105,6 +105,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.gameObject.name.Contains("Coin"))
         {
+            CoinSound.instance.GetComponent<AudioSource>().Play();
             SceneManager.LoadScene(nextScene);
         }
     }
