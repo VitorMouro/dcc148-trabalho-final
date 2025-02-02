@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     public float jumpForce;
     public float gravity;
     public string nextScene;
-    public float texOffset;
+    public Vector2 texOffset;
 
     private Rigidbody2D _rigidbody;
     private SpriteRenderer _spriteRenderer;
@@ -63,6 +63,9 @@ public class PlayerController : MonoBehaviour
         Vector3 newPosition = transform.position;
         newPosition.x = Mathf.Clamp(newPosition.x, _minX, _maxX);
         transform.position = newPosition;
+
+        // Debug
+        // _background.mainTextureOffset = texOffset;
     }
 
     private void OnTriggerEnter2D(Collider2D other)

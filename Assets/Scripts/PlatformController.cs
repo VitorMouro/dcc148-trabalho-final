@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlatformController : MonoBehaviour
 {
     public GameObject[] platformsPrefab;
+    public float[] probabilities;
     public GameObject coinPrefab;
     public int numPlatforms;
     public float verticalDistance;
@@ -18,7 +19,17 @@ public class PlatformController : MonoBehaviour
         float lastPositionX = 0;
         for (int i = 0; i < numPlatforms; i++)
         {
-            int randIndex = i == 0 ? 0 : Random.Range(0, platformsPrefab.Length);
+            float rand = Random.Range(0f, 1f);
+            int randIndex = 0;
+            float sum = 0;
+            for (int j = 0; j < probabilities.Length; j++)
+            {
+                sum =+ probabilities[j];
+                if(rand <= sum)
+                    randIndex = j;
+            }
+            if(i == 0 || i == numPlatforms-1)
+                randIndex = 0; // Primeira e última plataformas são estáticas
             GameObject platform = Instantiate(platformsPrefab[randIndex]);
             float platformX = i == 0 ? 0 : Random.Range(lastPositionX-maxHorizontalDistance, lastPositionX+maxHorizontalDistance);
             platformX = Mathf.Clamp(platformX, -maxX, maxX);

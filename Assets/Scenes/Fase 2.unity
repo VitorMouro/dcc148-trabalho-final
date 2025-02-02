@@ -452,7 +452,7 @@ MonoBehaviour:
   speed: 10
   jumpForce: 12
   gravity: -20
-  nextScene: PreFase2
+  nextScene: PreFase3
   texOffset: 0.2
 --- !u!95 &631165602
 Animator:
@@ -512,14 +512,14 @@ MonoBehaviour:
   - {fileID: 3203528242176775444, guid: 43f71f5cd468ac7f3a7e0875435661b6, type: 3}
   - {fileID: 3203528242176775444, guid: 7dfafd6dec25b5014b15702153465793, type: 3}
   probabilities:
-  - 1
-  - 0
+  - 0.8
+  - 0.2
   - 0
   - 0
   - 0
   coinPrefab: {fileID: 3278140287274423765, guid: d8cf1d43a13ac95f79b672583ed543b3, type: 3}
   numPlatforms: 40
-  verticalDistance: 1.5
+  verticalDistance: 1
   maxHorizontalDistance: 6
   maxX: 12
   coinHeight: 2
