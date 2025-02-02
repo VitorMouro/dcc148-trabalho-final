@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     private Material _background;
     private GameObject _coin;
     private Animator _animator;
-    
+
     private float _minX;
     private float _maxX;
 
@@ -69,8 +69,10 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.name.Contains("Platform"))
         {
-            if (_rigidbody.linearVelocityY > 0)
+            JumpSound.instance.GetComponent<AudioSource>().Play();
+            if (_rigidbody.linearVelocityY > 0) {
                 return;
+            }
 
             _animator.SetTrigger("Crouch");
 
