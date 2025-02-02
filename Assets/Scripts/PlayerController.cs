@@ -36,8 +36,10 @@ public class PlayerController : MonoBehaviour
         _rigidbody.linearVelocityX = horizontal * speed;
         _rigidbody.linearVelocityY += gravity * Time.deltaTime;
 
-        if (transform.position.y < -1.5) 
+        if (transform.position.y < -1.5) {
             SceneManager.LoadScene("GameOver");
+            BgMusic.instance.GetComponent<AudioSource>().Pause();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -70,11 +72,13 @@ public class PlayerController : MonoBehaviour
                 _rigidbody.linearVelocityY = jumpForce * 1.5f;
             } else if (other.gameObject.name.Contains("Death")){
                 SceneManager.LoadScene("GameOver");
+                BgMusic.instance.GetComponent<AudioSource>().Pause();
             }
         }
         else if (other.gameObject.name.Contains("Coin"))
         {
             SceneManager.LoadScene("GameOver");
+            BgMusic.instance.GetComponent<AudioSource>().Pause();
         }
     }
 }
