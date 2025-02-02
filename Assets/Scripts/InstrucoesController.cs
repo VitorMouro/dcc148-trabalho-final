@@ -5,6 +5,6 @@ public class InstrucoesController : MonoBehaviour
 {
     public void IntrucoesStartGame()
     {
-        SceneManager.LoadScene("Fase 1");
+        SceneManager.LoadScene("PreFase1");
     }
 }

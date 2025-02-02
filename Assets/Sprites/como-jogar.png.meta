@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      como-jogar_0: 2675346600611741207
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
