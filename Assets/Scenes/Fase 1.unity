@@ -569,7 +569,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: b0fb0b739eac3cb4fb88412d3c7202be, type: 3}
   m_Resource: {fileID: 8300000, guid: b0fb0b739eac3cb4fb88412d3c7202be, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.064
+  m_Volume: 0.138
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -932,7 +932,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: ce0ff60c88f34d04c89568ea924f077b, type: 3}
   m_Resource: {fileID: 8300000, guid: ce0ff60c88f34d04c89568ea924f077b, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.036
+  m_Volume: 0.101
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1206,24 +1206,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4103405202307462446, guid: 87e305a52739efd42987022ff0e0ea2f, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 54.0247
-      objectReference: {fileID: 0}
-    - target: {fileID: 4103405202307462446, guid: 87e305a52739efd42987022ff0e0ea2f, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 54.0247
-      objectReference: {fileID: 0}
-    - target: {fileID: 4103405202307462446, guid: 87e305a52739efd42987022ff0e0ea2f, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -413
-      objectReference: {fileID: 0}
-    - target: {fileID: 4103405202307462446, guid: 87e305a52739efd42987022ff0e0ea2f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 205
-      objectReference: {fileID: 0}
-    - target: {fileID: 4679148560075094238, guid: 87e305a52739efd42987022ff0e0ea2f, type: 3}
-      propertyPath: levelText
-      value: 
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5026840637046042988, guid: 87e305a52739efd42987022ff0e0ea2f, type: 3}
       propertyPath: m_LocalPosition.x
