@@ -452,7 +452,7 @@ MonoBehaviour:
   speed: 10
   jumpForce: 12
   gravity: -20
-  nextScene: Creditos
+  nextScene: Vitoria
   texOffset: 0.2
 --- !u!95 &631165602
 Animator:

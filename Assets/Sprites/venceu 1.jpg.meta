@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1bae22b0bb936eb44803f58a7980a1e6
+guid: 061f1df1ec90d3e43abf0a89dd5d46dc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8023777996216889834
-    second: sound_0
+      213: -2882921510565537823
+    second: venceu 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sound_0
+      name: venceu 1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 256
-        height: 256
+        width: 824
+        height: 399
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ae17a15639f2a5f60800000000000000
-      internalID: 8023777996216889834
+      spriteID: 1e79867192ecdf7d0800000000000000
+      internalID: -2882921510565537823
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      sound_0: 8023777996216889834
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
