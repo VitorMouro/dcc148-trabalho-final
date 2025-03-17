@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
 
         if (lastTrailColliderTime > trailColliderInterval) {
             lastTrailColliderTime = 0;
-            GameObject trailCollider = Instantiate(trailColliderPrefab, transform.position, transform.rotation);
+            // GameObject trailCollider = Instantiate(trailColliderPrefab, transform.position, transform.rotation);
         }
 
         UpdateCamera(Input.GetAxis("Mouse X"));
