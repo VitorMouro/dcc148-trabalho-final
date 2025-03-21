@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TrailColliderController : MonoBehaviour
 {
@@ -18,4 +19,5 @@ public class TrailColliderController : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    
 }
